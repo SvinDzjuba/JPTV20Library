@@ -13,6 +13,7 @@ public class App {
     Scanner scanner = new Scanner(System.in);
     private Book[] books = new Book[10];
     private Reader[] reader = new Reader[10];
+    private History[] history = new History[10];
     Calendar c = new GregorianCalendar();
     public void run() {
         String repeat = "r";
@@ -62,6 +63,9 @@ public class App {
                         }
                     }
                     break;
+                case 5:
+                    System.out.println("------ Ѕаза данных -----");
+                    
                 default:
                     System.out.println("¬ведите номер из списка: ");
             }
