@@ -3,10 +3,12 @@ package jptv20library;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
-import myclasses.Author;
-import myclasses.Book;
-import myclasses.History;
-import myclasses.Reader;
+import entity.Author;
+import entity.Book;
+import entity.History;
+import entity.Reader;
+import nterfaces.Keeping;
+import tools.SaverToFile;
 
 
 public class App {
@@ -14,6 +16,12 @@ public class App {
     private Book[] books = new Book[10];
     private Reader[] reader = new Reader[10];
     private History[] histories = new History[10];
+    private Keeping keeper = new SaverToFile();
+
+    public App() {
+        books = keeper.loadBooks();
+    }
+    
     Calendar c = new GregorianCalendar();
     public void run() {
         String repeat = "r";
@@ -38,6 +46,8 @@ public class App {
                     for (int i = 0; i < books.length; i++) {
                         if(books[i] == null){
                             books[i] = addBook();
+                            Keeping keeper = new SaverToFile();
+                            keeper.saveBooks(books);
                             break;
                         }
                     }

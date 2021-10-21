@@ -1,8 +1,9 @@
-package myclasses;
+package entity;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Book {
+public class Book implements Serializable{
     private String BookName;
     private int PublishedYear;
     private Author [] Author;
