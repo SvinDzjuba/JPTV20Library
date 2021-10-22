@@ -22,6 +22,9 @@ import nterfaces.Keeping;
             ObjectOutputStream oos = null;
             try {
                 fos = new FileOutputStream("books");
+                oos = new ObjectOutputStream(fos);
+                oos.writeObject(books);
+                oos.flush();
             } catch (FileNotFoundException ex){
                 Logger.getLogger(SaverToFile.class.getName()).log(Level.INFO,"Нет файла books",ex);
             } catch (IOException ex){

@@ -46,7 +46,6 @@ public class App {
                     for (int i = 0; i < books.length; i++) {
                         if(books[i] == null){
                             books[i] = addBook();
-                            Keeping keeper = new SaverToFile();
                             keeper.saveBooks(books);
                             break;
                         }
