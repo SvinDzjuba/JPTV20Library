@@ -2,11 +2,16 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.List;
+import entity.Author;
 
 public class Book implements Serializable{
     private String BookName;
     private int PublishedYear;
-    private Author [] Author;
+    private List<Author> author;
+    
+    public Book() {
+    }
 
     public String getBookName() {
         return BookName;
@@ -24,19 +29,16 @@ public class Book implements Serializable{
         this.PublishedYear = PublishedYear;
     }
 
-    public Author[] getAuthor() {
-        return Author;
+    public List<Author> getAuthor() {
+        return author;
     }
 
-    public void setAuthor(Author[] Author) {
-        this.Author = Author;
+    public void setAuthor(List<Author> author) {
+        this.author = author;
     }
 
     @Override
     public String toString() {
-        return "Book{" + "BookName=" + BookName + ", PublishedYear=" + PublishedYear + ", Author="+ Arrays.toString(Author)+'}';
-        
+        return "Book{" + "caption=" + BookName+ ",\n author=" + Arrays.toString(author.toArray())+ ",\n publishedYear=" + PublishedYear+ "\n}";
     }
-
-    
 }
