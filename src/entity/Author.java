@@ -3,40 +3,42 @@ package entity;
 import java.io.Serializable;
 
 public class Author implements Serializable{
-    private String FirstName;
-    private String LastName;
-    private int Year;
+    private String firstname;
+    private String lastname;
+    private int birthYear;
 
-    public Author() {
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getFirstName() {
-        return FirstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public void setFirstName(String FirstName) {
-        this.FirstName = FirstName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public String getLastName() {
-        return LastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public void setLastName(String LastName) {
-        this.LastName = LastName;
+    public int getBirthYear() {
+        return birthYear;
     }
 
-    public int getYear() {
-        return Year;
-    }
-
-    public void setYear(int Year) {
-        this.Year = Year;
+    public void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
     }
 
     @Override
     public String toString() {
-        return "Author{" + "FirstName=" + FirstName + ", LastName=" + LastName + ", Year=" + Year + '}';
+        return "Author{" 
+                + "firstname=" + firstname 
+                + ", lastname=" + lastname 
+                + ", birthYear=" + birthYear 
+                + '}';
     }
-   
+    
+    
 }

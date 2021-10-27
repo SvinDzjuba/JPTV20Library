@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 
 public class SaverToFile implements Keeping{
 
+    @Override
     public void saveBooks(List<Book> books) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
@@ -34,6 +35,7 @@ public class SaverToFile implements Keeping{
         }
     }
 
+    @Override
     public List<Book> loadBooks() {
         List<Book> listBooks = new ArrayList<>();
         FileInputStream fis = null;
@@ -54,26 +56,76 @@ public class SaverToFile implements Keeping{
     }
 
     @Override
-    public void saveReaders(List<Reader> readers) {
-        
+    public void saveReaders(List<Reader> reader) {
+        FileOutputStream fos=null;
+        ObjectOutputStream oos = null;
+        try{
+            fos=new FileOutputStream("reader");
+            oos=new ObjectOutputStream(fos);
+            oos.writeObject(reader);
+            oos.flush();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.INFO, "нет файла readers", ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Ошибка ввода", ex);
+        }
     }
-
     @Override
     public List<Reader> loadReaders() {
-        List<Reader> loadReaders = new ArrayList<>();
+        List<Reader> reader= new ArrayList<>();
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try{
+            fis = new FileInputStream("reader");
+            ois= new ObjectInputStream(fis);
+            reader = (List<Reader>) ois.readObject();
         
-        return loadReaders;
+        
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.INFO, "Файл readers еще не создан", ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Ошибка чтения readers", ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.INFO, "Данный класс отсутсвует", ex);
+        }
+        return reader;
     }
 
     @Override
     public void saveHistories(List<History> histories) {
-        
+        FileOutputStream fos=null;
+        ObjectOutputStream oos = null;
+        try{
+            fos=new FileOutputStream("histories");
+            oos=new ObjectOutputStream(fos);
+            oos.writeObject(histories);
+            oos.flush();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.INFO, "нет файла histories", ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Ошибка ввода", ex);
+        }
     }
 
     @Override
     public List<History> loadHistories() {
-        List<History> loadHistories = new ArrayList<>();
+        List<History> histories= new ArrayList<>();
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try{
+            fis = new FileInputStream("histories");
+            ois= new ObjectInputStream(fis);
+            histories= (List<History>) ois.readObject();
         
-        return loadHistories;
+        
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.INFO, "Файл histories еще не создан", ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Ошибка чтения histories", ex);
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.INFO, "Histories класс отсутсвует", ex);
+        }
+        return histories;
     }
 }

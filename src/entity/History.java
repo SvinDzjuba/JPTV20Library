@@ -1,12 +1,17 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class History {
+import java.io.Serializable;
+import java.util.Date;
+
+
+public class History implements Serializable{
     private Reader reader;
     private Book book;
-    private Date givendate;
-    private Date returndate;
+    private Date givenDate;
+    private Date returnedDate;
 
     public Reader getReader() {
         return reader;
@@ -24,26 +29,31 @@ public class History {
         this.book = book;
     }
 
-    public Date getGivendate() {
-        return givendate;
+    public Date getGivenDate() {
+        return givenDate;
     }
 
-    public void setGivendate(Date givendate) {
-        this.givendate = givendate;
+    public void setGivenDate(Date givenDate) {
+        this.givenDate = givenDate;
     }
 
-    public Date getReturndate() {
-        return returndate;
+    public Date getReturnedDate() {
+        return returnedDate;
     }
 
-    public void setReturndate(Date returndate) {
-        this.returndate = returndate;
+    public void setReturnedDate(Date returnedDate) {
+        this.returnedDate = returnedDate;
     }
 
     @Override
     public String toString() {
-        return "History{" + "reader=" + reader + ", book=" + book + ", givendate=" + givendate + ", returndate=" + returndate + '}';
+        return "History{" 
+                + "reader=" + reader 
+                + ", book=" + book 
+                + ", givenDate=" + givenDate 
+                + ", returnedDate=" + returnedDate 
+                + '}';
     }
-
+    
 }
 
