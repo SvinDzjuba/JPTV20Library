@@ -22,8 +22,6 @@ public class HistoryFacade extends AbstractFacade<History>{
         super(entityClass);
     }
 
-    
-    
     @Override
     protected EntityManager getEntityManager() {
         return em;

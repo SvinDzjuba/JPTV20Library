@@ -11,18 +11,18 @@ import facade.AuthorFacade;
 import facade.BookFacade;
 import facade.HistoryFacade;
 import facade.ReaderFacade;
-import interfaces.Keeping;
+//import interfaces.Keeping;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Comparator;
+//import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import tools.SaverToBase;
-import tools.SaverToFile;
+//import tools.SaverToBase;
+//import tools.SaverToFile;
 
 
 
@@ -36,10 +36,10 @@ public class App {
 //    private Keeping keeper = new SaverToFile();
     //private Keeping keeper = new SaverToBase();
    // private SaverToBase saverToBase = new SaverToBase();
-    private BookFacade bookFacade = new BookFacade(Book.class);
-    private ReaderFacade readerFacade = new ReaderFacade(Reader.class);
-    private AuthorFacade authorFacade = new AuthorFacade(Author.class);
-    private HistoryFacade historyFacade = new HistoryFacade(History.class);
+    private BookFacade bookFacade;
+    private ReaderFacade readerFacade;
+    private AuthorFacade authorFacade;
+    private HistoryFacade historyFacade;
 
     public App() {
 //        books = keeper.loadBooks();
@@ -47,6 +47,13 @@ public class App {
 //        readers = keeper.loadReaders();
 //        histories = keeper.loadHistories();
         
+    }
+    
+    private void init(){
+        authorFacade = new AuthorFacade(Author.class);
+        bookFacade = new BookFacade(Book.class);
+        historyFacade = new HistoryFacade(History.class);
+        readerFacade = new ReaderFacade(Reader.class);
     }
     
     public void run(){
