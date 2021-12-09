@@ -22,7 +22,7 @@ public class Singleton {
     }
     
     private void init(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("DeLibraryPU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("DeLibrary");
         em = emf.createEntityManager();
     }
     
