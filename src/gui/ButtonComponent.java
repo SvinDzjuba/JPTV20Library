@@ -16,6 +16,9 @@ import javax.swing.JTextField;
 public class ButtonComponent extends JPanel{
     private JLabel title;
     private JButton button;
+    public ButtonComponent(){
+        initComponents(String text, int widthWindow, int heightPanel, int left, int widthEditor);
+    }
     
     private void initComponents(String text, int widthWindow, int heightPanel, int left, int widthEditor){
         this.setPreferredSize(new Dimension(widthWindow,heightPanel));
